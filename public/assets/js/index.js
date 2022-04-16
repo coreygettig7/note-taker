@@ -39,7 +39,19 @@ const saveNote = (note) =>
     headers: {
       'Content-Type': 'application/json',
     },
-    body: JSON.stringify(note),
+    body: JSON.stringify(note)
+  })
+    .then(response => {
+      if (response.ok) {
+        return response.json();
+      }
+      else {
+        alert('Error:' + response.statusText);
+      }
+  })
+    .then(postResponse => {
+      console.log(postResponse);
+      alert('New note added!');
   });
 
 const deleteNote = (id) =>
