@@ -10,5 +10,10 @@ router.get('/notes', (req, res) => {
     res.json(results);
 });
 
+router.post('/notes', (req, res) => {
+    console.log(req.body);
+
+    res.json(req.body);
+})
 
 module.exports = router
