@@ -10,6 +10,7 @@ router.get('/notes', (req, res) => {
     res.json(JSON.parse(notes));
 });
 
+// POST rpposts a note with title, text, and id
 router.post('/notes', (req, res) => {
     let notes = fs.readFileSync('./db/db.json', 'utf8');
 
@@ -32,6 +33,26 @@ router.post('/notes', (req, res) => {
         });
 
     res.json(note);
+});
+
+router.delete('/notes/:id', (req, res) => {
+    let notes = fs.readFileSync('./db/db.json', 'utf8');
+
+    const parsedNotes = JSON.parse(notes);
+
+    const remainingNotes = parsedNotes.filter((note) => {
+        return note.id !== req.params.id;
+    });
+
+    fs.writeFile('./db/db.json', JSON.stringify(remainingNotes), (err, text) => {
+        if (err) {
+            console.log(err);
+            return;
+        }
+        console.log('Deletion success!')
+    });
+
+    res.json(remainingNotes);
 });
 
 module.exports = router;
