@@ -14,6 +14,10 @@
   ## Description:
   A web app that allows you to save notes and delete them
 
+  ## Screenshot:
+  ![homepage](public\assets\images\intense-hollows-74992.herokuapp.com_.png)
+  ![notes-page](public\assets\images\intense-hollows-74992.herokuapp.com_notes.png)
+
   ## Installation:
   No installation necessary, visit the deployed page at https://intense-hollows-74992.herokuapp.com/
 
